@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;cxx;c;def</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>moc;h;cpp</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Debug">
+      <UniqueIdentifier>{8aee9e47-60b3-4f44-80ca-2134bcfc7f5b}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Release">
+      <UniqueIdentifier>{4f57a088-a9ff-4150-a734-ebaf207d9af1}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Header Files\myimageeditor">
+      <UniqueIdentifier>{a34bcdae-91f6-4c8e-aa19-e7e3c7b945fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\myimageeditor">
+      <UniqueIdentifier>{5fcc1cbb-0f3c-4bdc-bcb4-d03554a9c5c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dockwidgets">
+      <UniqueIdentifier>{a23e2ced-6ad7-4f2e-bbe5-394fa1a48ae8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dockwidgets">
+      <UniqueIdentifier>{cc1f4120-ed15-492f-9189-cf324beadfc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ui">
+      <UniqueIdentifier>{b34e98f7-1472-4129-a3b8-426c39b964e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui">
+      <UniqueIdentifier>{831a6ffb-049f-487c-98aa-066853db7719}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ocv">
+      <UniqueIdentifier>{2a18bcfa-5b83-47aa-b6af-32f1ff87be5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ocv">
+      <UniqueIdentifier>{a3416baf-b109-412e-9ad1-4dbb0579b285}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GeneratedFiles\Debug\moc_myimageeditor.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_myimageeditor.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="source\myimageeditor\main.cpp">
+      <Filter>Source Files\myimageeditor</Filter>
+    </ClCompile>
+    <ClCompile Include="source\myimageeditor\myimageeditor.cpp">
+      <Filter>Source Files\myimageeditor</Filter>
+    </ClCompile>
+    <ClCompile Include="source\dockwidgets\directcamview_wrpr.cpp">
+      <Filter>Source Files\dockwidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_directcamview_wrpr.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_directcamview_wrpr.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui\directcam_graphicsview.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_directcam_graphicsview.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_directcam_graphicsview.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ocv\avifile_accessor.cpp">
+      <Filter>Source Files\ocv</Filter>
+    </ClCompile>
+    <ClCompile Include="source\dockwidgets\histogramview_wrpr.cpp">
+      <Filter>Source Files\dockwidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_histogramview_wrpr.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_histogramview_wrpr.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ocv\histogram_calculate.cpp">
+      <Filter>Source Files\ocv</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_loggingview_wrpr.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_loggingview_wrpr.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="source\dockwidgets\loggingview_wrpr.cpp">
+      <Filter>Source Files\dockwidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="source\myimageeditor\logger.cpp">
+      <Filter>Source Files\myimageeditor</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_logger.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_logger.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="source\dockwidgets\imageeditorview_wrpr.cpp">
+      <Filter>Source Files\dockwidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_imageeditorview_wrpr.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_imageeditorview_wrpr.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui\imageeditor_graphicsview.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_imageeditor_graphicsview.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_imageeditor_graphicsview.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="source\myimageeditor\settings.cpp">
+      <Filter>Source Files\myimageeditor</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_settings.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_settings.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ocv\col_to_gray_converter.cpp">
+      <Filter>Source Files\ocv</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ocv\otsu_thresholder.cpp">
+      <Filter>Source Files\ocv</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GeneratedFiles\ui_myimageeditor.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_directcamview_dckwgt.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ocv\avifile_accessor.hpp">
+      <Filter>Header Files\ocv</Filter>
+    </ClInclude>
+    <ClInclude Include="include\myimageeditor\webcamsettings.hpp">
+      <Filter>Header Files\myimageeditor</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_histogramview_dckwgt.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ocv\histogram_calculate.hpp">
+      <Filter>Header Files\ocv</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ocv\ocv_utils.hpp">
+      <Filter>Header Files\ocv</Filter>
+    </ClInclude>
+    <ClInclude Include="include\myimageeditor\myimageeditor_base.hpp">
+      <Filter>Header Files\myimageeditor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\dockwidgets\dockwidget_base.hpp">
+      <Filter>Header Files\dockwidgets</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_loggingview_dckwgt.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\myimageeditor\logger_defines.hpp">
+      <Filter>Header Files\myimageeditor</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_imageeditorview_dckwgt.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ocv\col_to_gray_converter.hpp">
+      <Filter>Header Files\ocv</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ocv\otsu_thresholder.hpp">
+      <Filter>Header Files\ocv</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="ui\myimageeditor.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\directcamview_dckwgt.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="include\myimageeditor\myimageeditor.hpp">
+      <Filter>Header Files\myimageeditor</Filter>
+    </CustomBuild>
+    <CustomBuild Include="include\dockwidgets\directcamview_wrpr.hpp">
+      <Filter>Header Files\dockwidgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="include\ui\directcam_graphicsview.hpp">
+      <Filter>Header Files\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\histogramview_dckwgt.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="include\dockwidgets\histogramview_wrpr.hpp">
+      <Filter>Header Files\dockwidgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\loggingview_dckwgt.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="include\dockwidgets\loggingview_wrpr.hpp">
+      <Filter>Header Files\dockwidgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="include\myimageeditor\logger.hpp">
+      <Filter>Header Files\myimageeditor</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\imageeditorview_dckwgt.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="include\dockwidgets\imageeditorview_wrpr.hpp">
+      <Filter>Header Files\dockwidgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="include\ui\imageeditor_graphicsview.hpp">
+      <Filter>Header Files\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="include\myimageeditor\settings.hpp">
+      <Filter>Header Files\myimageeditor</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>
