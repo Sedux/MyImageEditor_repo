@@ -18,9 +18,12 @@ QMainWindow(f_parent, f_flags)
 
     CSettings::getInstance(this)->restoreSettings();
 
-    QDEBUG_MSG("Debug");
+    /*QDEBUG_MSG("Debug");
     QWARNING_MSG("Warning");
     QERROR_MSG("Error");
+    qDebug()<<"Error1";
+    qWarning()<<"Warning1";
+    qCritical()<<"Critical";*/
 }
 
 CMyImageEditor::~CMyImageEditor()

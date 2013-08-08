@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'directcamview_dckwgt.ui'
 **
-** Created: Fri 26. Jul 23:26:08 2013
+** Created: Thu 8. Aug 23:06:07 2013
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

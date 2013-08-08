@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Logging View</string>
+   <string>Log View</string>
   </property>
   <widget class="QWidget" name="dockWidgetContents">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -28,12 +28,12 @@
       </attribute>
       <column>
        <property name="text">
-        <string>Time</string>
+        <string>TimeStamp</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>Log Message</string>
+        <string>Message</string>
        </property>
       </column>
       <column>

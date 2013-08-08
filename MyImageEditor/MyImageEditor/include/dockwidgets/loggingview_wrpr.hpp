@@ -27,6 +27,10 @@ private:
 
     struct SLogMsgInfo
     {
+        SLogMsgInfo() : m_lineNum(0), m_fileName("NA"), m_message()
+        {
+        }
+
         int      m_lineNum;
         QString  m_fileName;
         QString  m_message;

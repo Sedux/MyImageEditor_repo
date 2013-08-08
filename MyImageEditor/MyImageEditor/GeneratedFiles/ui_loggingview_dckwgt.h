@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'loggingview_dckwgt.ui'
 **
-** Created: Fri 26. Jul 00:14:13 2013
+** Created: Fri 9. Aug 01:00:51 2013
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -65,11 +65,11 @@ public:
 
     void retranslateUi(QDockWidget *CLoggingView)
     {
-        CLoggingView->setWindowTitle(QApplication::translate("CLoggingView", "Logging View", 0, QApplication::UnicodeUTF8));
+        CLoggingView->setWindowTitle(QApplication::translate("CLoggingView", "Log View", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem = m_logTable->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QApplication::translate("CLoggingView", "Time", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem->setText(QApplication::translate("CLoggingView", "TimeStamp", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem1 = m_logTable->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QApplication::translate("CLoggingView", "Log Message", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem1->setText(QApplication::translate("CLoggingView", "Message", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem2 = m_logTable->horizontalHeaderItem(2);
         ___qtablewidgetitem2->setText(QApplication::translate("CLoggingView", "Line Number", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem3 = m_logTable->horizontalHeaderItem(3);

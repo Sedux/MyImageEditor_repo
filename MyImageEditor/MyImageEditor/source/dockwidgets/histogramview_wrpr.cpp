@@ -30,8 +30,11 @@ void CHistogramViewWrpr::calculateHistogram(const QImage& f_image)
     this->clearAllPlots();
     m_histogram.calculateHistogram(f_image);
     this->addPlot(m_histogram.getChannel0().m_xvalues, m_histogram.getChannel0().m_yvalues, QColor(0, 0, 255));
-    this->addPlot(m_histogram.getChannel1().m_xvalues, m_histogram.getChannel1().m_yvalues, QColor(0, 255, 0));
-    this->addPlot(m_histogram.getChannel2().m_xvalues, m_histogram.getChannel2().m_yvalues, QColor(255, 0, 0));
+    if(QImage::Format_Indexed8 != f_image.format())
+    {
+        this->addPlot(m_histogram.getChannel1().m_xvalues, m_histogram.getChannel1().m_yvalues, QColor(0, 255, 0));
+        this->addPlot(m_histogram.getChannel2().m_xvalues, m_histogram.getChannel2().m_yvalues, QColor(255, 0, 0));
+    }
     m_histogramView_ui.m_qwtPlot->replot();
 }
 

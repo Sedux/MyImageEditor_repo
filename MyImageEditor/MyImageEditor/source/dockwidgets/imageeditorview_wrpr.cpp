@@ -20,6 +20,7 @@ void CImageEditorViewWrpr::setWidget(QWidget* f_widget)
     m_imageEditorView_ui.setupUi(this);
     connect(m_imageEditorView_ui.m_genHistogram_btn, SIGNAL(clicked()), this, SLOT(genHistogramBtnClicked()));
     connect(m_imageEditorView_ui.m_convertToGrayScale_chkBx, SIGNAL(stateChanged(int)), this, SLOT(reloadImage()));
+    connect(m_imageEditorView_ui.m_convertToMonochkBx, SIGNAL(stateChanged(int)), this, SLOT(reloadImage()));
     connect(m_imageEditorView_ui.m_grayScaleMethod_comBx, SIGNAL(currentIndexChanged(int)), this, SLOT(reloadImage()));
 }
 
@@ -50,12 +51,12 @@ void CImageEditorViewWrpr::updateImage(const QImage& f_image)
     if(true == m_imageEditorView_ui.m_convertToGrayScale_chkBx->isChecked())
     {
         CColToGrayConv l_grayScaleConv;
-        l_convertedImage = l_grayScaleConv.convertToGray(f_image, static_cast<CColToGrayConv::EMethod>(m_imageEditorView_ui.m_grayScaleMethod_comBx->currentIndex()));
+        l_convertedImage = l_grayScaleConv.convertToGray(f_image, static_cast<CColToGrayConv::EMethod>(m_imageEditorView_ui.m_grayScaleMethod_comBx->currentIndex()));   
+    }
 
-        if(true ==  m_imageEditorView_ui.m_convertToMonochkBx->isChecked())
-        {
-            l_convertedImage = COtsuThresholder::convertGrayToBinary(l_convertedImage);
-        }
+    if((QImage::Format_Indexed8 == l_convertedImage.format()) && (true ==  m_imageEditorView_ui.m_convertToMonochkBx->isChecked()))
+    {
+        l_convertedImage = COtsuThresholder::convertGrayToBinary(l_convertedImage);
     }
 
     m_imageEditorView_ui.m_graphicsView->updateImage(l_convertedImage);
@@ -63,7 +64,10 @@ void CImageEditorViewWrpr::updateImage(const QImage& f_image)
 
 void CImageEditorViewWrpr::reloadImage()
 {
-    this->updateImage(m_image);
+    if(false == m_image.isNull())
+    {
+        this->updateImage(m_image);
+    }
 }
 
 

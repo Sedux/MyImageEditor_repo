@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'loggingview_wrpr.hpp'
 **
-** Created: Fri 26. Jul 00:14:11 2013
+** Created: Thu 8. Aug 23:16:33 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.2)
 **
 ** WARNING! All changes made in this file will be lost!

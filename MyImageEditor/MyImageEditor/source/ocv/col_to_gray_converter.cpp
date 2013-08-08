@@ -4,6 +4,11 @@
 
 QImage CColToGrayConv::convertToGray(const QImage& f_image, const CColToGrayConv::EMethod& f_method_e)
 {
+    if(QImage::Format_Indexed8 == f_image.format())
+    {
+        return f_image;
+    }
+
     QImage l_outImage(f_image.width(), f_image.height(), QImage::Format_Indexed8);
     for(int l_count = 0; l_count < 256; l_count++)
     {
@@ -44,7 +49,7 @@ void CColToGrayConv::convertByOCV(const QImage& f_inImage, QImage& f_outImage)
 {
     cv::Mat l_image = utils::QImageToMat(f_inImage);
     cv::cvtColor(l_image, l_image, CV_BGR2GRAY);
-    f_outImage = utils::MatToQImageG(l_image);
+    f_outImage = utils::MatToQImage(l_image);
 }
 
 //http://www.johndcook.com/blog/2009/08/24/algorithms-convert-color-grayscale/

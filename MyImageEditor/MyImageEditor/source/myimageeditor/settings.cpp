@@ -18,7 +18,7 @@ CSettings::~CSettings()
 
 CSettings* CSettings::getInstance(CMyImageEditor* f_imageEditor)
 {
-    //thread synchronisation
+    //synchronisation when accessing from multiple threads
     static QMutex mutex;
     QMutexLocker locker(&mutex);
 
@@ -33,23 +33,21 @@ CSettings* CSettings::getInstance(CMyImageEditor* f_imageEditor)
 void CSettings::restoreSettings(QString iniFileName)
 {
     m_iniFileName = iniFileName;
-    QDEBUG_MSG("Init File:" + iniFileName);
     m_settings = new  QSettings(m_iniFileName, QSettings::IniFormat);
-
     this->restoreGUIStateAndGeometry();
 }
  
 void CSettings::storeSettings()
 {
-    m_settings->setValue("MainWindow/State", m_imageEditor->saveState());
-    m_settings->setValue("MainWindow/Geometry", m_imageEditor->saveGeometry());
+    m_settings->setValue("MyImageEditor_State", m_imageEditor->saveState());
+    m_settings->setValue("MyImageEditor_Geometry", m_imageEditor->saveGeometry());
     m_settings->sync();
 }
 
 void CSettings::restoreGUIStateAndGeometry()
 {
-    m_imageEditor->restoreState(m_settings->value("MainWindow/State").toByteArray());
-    m_imageEditor->restoreGeometry(m_settings->value("MainWindow/Geometry").toByteArray());
+    m_imageEditor->restoreState(m_settings->value("MyImageEditor_State").toByteArray());
+    m_imageEditor->restoreGeometry(m_settings->value("MyImageEditor_Geometry").toByteArray());
 }
 
 

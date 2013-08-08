@@ -56,7 +56,7 @@ QImage COtsuThresholder::convertGrayToBinary(const QImage& f_image)
 {
     CHistogramCalc histCalc;
     histCalc.calculateHistogram(f_image);
-    int l_threshold = COtsuThresholder::calculateThreshold(histCalc.getChannel2());
+    int l_threshold = COtsuThresholder::calculateThreshold(histCalc.getChannel0());
     QImage l_monochrome(f_image);
     for(int l_count = 0; l_count < 256; l_count++)
     {
@@ -67,7 +67,7 @@ QImage COtsuThresholder::convertGrayToBinary(const QImage& f_image)
     {
         for(int l_y = 0; l_y < f_image.height(); l_y++)
         {
-            if(l_threshold < f_image.constBits()[l_y * f_image.width() + l_x])
+            if(l_threshold < f_image.constBits()[l_y * f_image.bytesPerLine() + l_x])
             {
                 l_monochrome.setPixel(l_x, l_y, 255);
             }

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'myimageeditor.ui'
 **
-** Created: Fri 26. Jul 23:23:34 2013
+** Created: Thu 8. Aug 23:06:06 2013
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
