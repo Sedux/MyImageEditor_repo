@@ -55,6 +55,12 @@
    </attribute>
    <widget class="QWidget" name="dockWidgetContents_4"/>
   </widget>
+  <widget class="CImageProcessingToolsViewWrpr" name="m_imageProcessingToolsView">
+   <attribute name="dockWidgetArea">
+    <number>8</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_5"/>
+  </widget>
  </widget>
  <customwidgets>
   <customwidget>
@@ -79,6 +85,12 @@
    <class>CImageEditorViewWrpr</class>
    <extends>QDockWidget</extends>
    <header>..\include\dockwidgets\imageeditorview_wrpr.hpp</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CImageProcessingToolsViewWrpr</class>
+   <extends>QDockWidget</extends>
+   <header>..\include\dockwidgets\imageprocessingtoolsview_wrpr.hpp</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

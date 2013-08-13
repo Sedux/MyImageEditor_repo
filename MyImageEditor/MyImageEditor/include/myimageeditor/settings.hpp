@@ -16,7 +16,7 @@ public:
 
     static CSettings* getInstance(CMyImageEditor* f_imageEditor = 0);
 
-    void restoreSettings(QString iniFileName = QDir::currentPath()+QString("/myimageeditor.ini"));
+    void restoreSettings(QString iniFileName = QDir::currentPath() + QString("/MyImageEditor.ini"));
     void storeSettings();
 
     void restoreGUIStateAndGeometry();

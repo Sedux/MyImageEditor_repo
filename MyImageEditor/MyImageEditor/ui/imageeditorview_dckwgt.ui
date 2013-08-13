@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>562</width>
-    <height>545</height>
+    <width>779</width>
+    <height>679</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,50 +15,28 @@
   </property>
   <widget class="QWidget" name="dockWidgetContents">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="6" column="0">
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <widget class="QCheckBox" name="m_convertToMonochkBx">
-        <property name="text">
-         <string>Convert to MonoChrome</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="0" column="0">
-     <widget class="CImageEditorGraphicsView" name="m_graphicsView"/>
-    </item>
-    <item row="1" column="0">
-     <widget class="QPushButton" name="m_genHistogram_btn">
-      <property name="text">
-       <string>Generate Histogram</string>
+    <item row="0" column="1">
+     <widget class="CRulerWidget" name="m_horRuler_wdgt" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>20</height>
+       </size>
       </property>
      </widget>
     </item>
-    <item row="2" column="0">
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QCheckBox" name="m_convertToGrayScale_chkBx">
-        <property name="text">
-         <string>Convert to Gray Scale</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Method:</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="m_grayScaleMethod_comBx"/>
-      </item>
-     </layout>
+    <item row="1" column="1">
+     <widget class="CImageEditorGraphicsView" name="m_graphicsView"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="CRulerWidget" name="m_verRuler_wdgt" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>40</width>
+        <height>50</height>
+       </size>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -68,6 +46,12 @@
    <class>CImageEditorGraphicsView</class>
    <extends>QGraphicsView</extends>
    <header>..\include\ui\imageeditor_graphicsview.hpp</header>
+  </customwidget>
+  <customwidget>
+   <class>CRulerWidget</class>
+   <extends>QWidget</extends>
+   <header>..\include\ui\ruler_widget.hpp</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

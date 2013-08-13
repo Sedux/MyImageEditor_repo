@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'directcam_graphicsview.hpp'
 **
-** Created: Thu 8. Aug 23:06:04 2013
+** Created: Wed 14. Aug 02:58:06 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,33 +23,39 @@ static const uint qt_meta_data_CDirectCamGraphicsView[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
+      12,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       2,       // signalCount
+       4,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
-      24,   23,   23,   23, 0x05,
-      48,   40,   23,   23, 0x05,
+      51,   24,   23,   23, 0x05,
+     103,   86,   23,   23, 0x05,
+     123,   23,   23,   23, 0x05,
+     147,  139,   23,   23, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      78,   23,   23,   23, 0x0a,
-      91,   23,   23,   23, 0x0a,
-      98,   23,   23,   23, 0x0a,
-     117,  106,   23,   23, 0x0a,
-     131,   23,   23,   23, 0x0a,
-     146,   23,   23,   23, 0x0a,
-     161,   23,   23,   23, 0x0a,
      177,   23,   23,   23, 0x0a,
+     190,   23,   23,   23, 0x0a,
+     197,   23,   23,   23, 0x0a,
+     216,  205,   23,   23, 0x0a,
+     230,   23,   23,   23, 0x0a,
+     245,   23,   23,   23, 0x0a,
+     260,   23,   23,   23, 0x0a,
+     276,   23,   23,   23, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_CDirectCamGraphicsView[] = {
-    "CDirectCamGraphicsView\0\0updateSeqCtrl()\0"
-    "f_image\0updateImageEditorView(QImage)\0"
+    "CDirectCamGraphicsView\0\0"
+    "f_originGlobal,f_100Global\0"
+    "graphicsViewRedrawn(QPoint,QPoint)\0"
+    "f_mousePosGlobal\0curMousePos(QPoint)\0"
+    "updateSeqCtrl()\0f_image\0"
+    "updateImageEditorView(QImage)\0"
     "tmrTimeOut()\0play()\0pause()\0f_frameNum\0"
     "getFrame(int)\0getNextFrame()\0"
     "getPrevFrame()\0getFirstFrame()\0"
@@ -62,16 +68,18 @@ void CDirectCamGraphicsView::qt_static_metacall(QObject *_o, QMetaObject::Call _
         Q_ASSERT(staticMetaObject.cast(_o));
         CDirectCamGraphicsView *_t = static_cast<CDirectCamGraphicsView *>(_o);
         switch (_id) {
-        case 0: _t->updateSeqCtrl(); break;
-        case 1: _t->updateImageEditorView((*reinterpret_cast< const QImage(*)>(_a[1]))); break;
-        case 2: _t->tmrTimeOut(); break;
-        case 3: _t->play(); break;
-        case 4: _t->pause(); break;
-        case 5: _t->getFrame((*reinterpret_cast< const int(*)>(_a[1]))); break;
-        case 6: _t->getNextFrame(); break;
-        case 7: _t->getPrevFrame(); break;
-        case 8: _t->getFirstFrame(); break;
-        case 9: _t->getLastFrame(); break;
+        case 0: _t->graphicsViewRedrawn((*reinterpret_cast< const QPoint(*)>(_a[1])),(*reinterpret_cast< const QPoint(*)>(_a[2]))); break;
+        case 1: _t->curMousePos((*reinterpret_cast< const QPoint(*)>(_a[1]))); break;
+        case 2: _t->updateSeqCtrl(); break;
+        case 3: _t->updateImageEditorView((*reinterpret_cast< const QImage(*)>(_a[1]))); break;
+        case 4: _t->tmrTimeOut(); break;
+        case 5: _t->play(); break;
+        case 6: _t->pause(); break;
+        case 7: _t->getFrame((*reinterpret_cast< const int(*)>(_a[1]))); break;
+        case 8: _t->getNextFrame(); break;
+        case 9: _t->getPrevFrame(); break;
+        case 10: _t->getFirstFrame(); break;
+        case 11: _t->getLastFrame(); break;
         default: ;
         }
     }
@@ -109,23 +117,37 @@ int CDirectCamGraphicsView::qt_metacall(QMetaObject::Call _c, int _id, void **_a
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 12;
     }
     return _id;
 }
 
 // SIGNAL 0
-void CDirectCamGraphicsView::updateSeqCtrl()
+void CDirectCamGraphicsView::graphicsViewRedrawn(const QPoint & _t1, const QPoint & _t2)
 {
-    QMetaObject::activate(this, &staticMetaObject, 0, 0);
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 
 // SIGNAL 1
-void CDirectCamGraphicsView::updateImageEditorView(const QImage & _t1)
+void CDirectCamGraphicsView::curMousePos(const QPoint & _t1)
 {
     void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
+}
+
+// SIGNAL 2
+void CDirectCamGraphicsView::updateSeqCtrl()
+{
+    QMetaObject::activate(this, &staticMetaObject, 2, 0);
+}
+
+// SIGNAL 3
+void CDirectCamGraphicsView::updateImageEditorView(const QImage & _t1)
+{
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 3, _a);
 }
 QT_END_MOC_NAMESPACE

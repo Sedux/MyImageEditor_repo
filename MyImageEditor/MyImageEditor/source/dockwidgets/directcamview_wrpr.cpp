@@ -40,6 +40,17 @@ void CDirectCamViewWrpr::setWidget(QWidget* f_widget)
     connect(m_directCamView_ui.m_frameSlider, SIGNAL(valueChanged(int)), this, SLOT(sliderValueChanged(int)),  Qt::AutoConnection);
 
     connect(m_directCamView_ui.m_graphicsView, SIGNAL(updateSeqCtrl()), this, SLOT(updateSeqCtrl()));
+
+    m_directCamView_ui.m_horRuler_wdgt->setOrientation(CRulerWidget::HORIZONTAL);
+    m_directCamView_ui.m_verRuler_wdgt->setOrientation(CRulerWidget::VERTICAL);
+    connect(m_directCamView_ui.m_graphicsView, SIGNAL(graphicsViewRedrawn(const QPoint&, const QPoint&)), 
+            m_directCamView_ui.m_horRuler_wdgt, SLOT(graphicsViewRedrawn(const QPoint&, const QPoint&)));
+    connect(m_directCamView_ui.m_graphicsView, SIGNAL(graphicsViewRedrawn(const QPoint&, const QPoint&)), 
+            m_directCamView_ui.m_verRuler_wdgt, SLOT(graphicsViewRedrawn(const QPoint&, const QPoint&)));
+    connect(m_directCamView_ui.m_graphicsView, SIGNAL(curMousePos(const QPoint&)), 
+            m_directCamView_ui.m_horRuler_wdgt, SLOT(setCurrentPos(const QPoint&)));
+    connect(m_directCamView_ui.m_graphicsView, SIGNAL(curMousePos(const QPoint&)), 
+            m_directCamView_ui.m_verRuler_wdgt, SLOT(setCurrentPos(const QPoint&)));
 }
 
 void CDirectCamViewWrpr::init(IMyImageEditor* f_int)

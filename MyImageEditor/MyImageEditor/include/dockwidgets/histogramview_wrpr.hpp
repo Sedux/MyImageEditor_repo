@@ -8,7 +8,7 @@
 #include "ui_histogramview_dckwgt.h"
 
 #include "dockwidgets\dockwidget_base.hpp"
-#include "ocv\histogram_calculate.hpp"
+#include "image\histogram_calculate.hpp"
 
 class CHistogramViewWrpr : public QDockWidget, public IDckWidget
 {

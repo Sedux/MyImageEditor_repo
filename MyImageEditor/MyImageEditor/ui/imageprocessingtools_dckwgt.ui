@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CImageProcessingToolsView</class>
+ <widget class="QDockWidget" name="CImageProcessingToolsView">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>496</width>
+    <height>194</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Image Processing Tools</string>
+  </property>
+  <widget class="QWidget" name="dockWidgetContents">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="3" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QCheckBox" name="m_convertToGrayScale_chkBx">
+        <property name="text">
+         <string>Convert to Gray Scale</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Method:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="m_grayScaleMethod_comBx"/>
+      </item>
+     </layout>
+    </item>
+    <item row="4" column="0">
+     <widget class="QCheckBox" name="m_convertToMono_chkBx">
+      <property name="text">
+       <string>Convert to MonoChrome</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QCheckBox" name="m_detectEdges_chkBx">
+        <property name="text">
+         <string>Detect Edges</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>Method:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="m_detectEdges_comBx"/>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="0">
+     <widget class="QPushButton" name="m_genHistogram_btn">
+      <property name="text">
+       <string>Generate Histogram</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QCheckBox" name="m_reverseImageVer_chkBx">
+        <property name="text">
+         <string>Mirror Image Vertically</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="m_reverseImageHor_chkBx">
+        <property name="text">
+         <string>Mirror Image Horizontally</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

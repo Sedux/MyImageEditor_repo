@@ -6,7 +6,7 @@ CLoggingViewWrpr::CLoggingViewWrpr(QWidget* f_parent, Qt::WFlags f_flag) :
 QDockWidget(f_parent, f_flag),
 m_loggingView_ui()
 {
-    m_logFile = QDir::homePath()+QString("/AppData/Local/rb_gti_lab/rb_gti_lab.log");
+    m_logFile = QDir::currentPath() + QString("/MyImageEditor.txt");
     QFile fileHandler(m_logFile);
     if(false == fileHandler.isOpen())
     {
@@ -14,7 +14,7 @@ m_loggingView_ui()
     }
 
     fileHandler.write("\n\n\n------------------------------------------------------------------------------\r\n");
-    fileHandler.write      ("-------------------------------Start of Session-------------------------------\r\n");
+    fileHandler.write      ("-----------------------------------Start of Log-------------------------------\r\n");
     fileHandler.write      (QString("Date: " + QDate::currentDate().toString("dd:MM:yyyy") + "\r\n").toLocal8Bit().data());
     fileHandler.close();
 
@@ -30,7 +30,7 @@ CLoggingViewWrpr::~CLoggingViewWrpr()
     }
 
     
-    fileHandler.write("-------------------------------End of Session---------------------------------\r\n");
+    fileHandler.write("-------------------------------End of Log------------------------------------\r\n");
     fileHandler.write("------------------------------------------------------------------------------\r\n");
     fileHandler.close();
 }
@@ -58,7 +58,7 @@ void CLoggingViewWrpr::addMessage(QtMsgType f_msgType, QString f_msg)
 {
     QTableWidget* logTable = m_loggingView_ui.m_logTable;
 
-    QString time = QTime::currentTime().toString("hh:mm:ss.zzz");
+    QString time = QTime::currentTime().toString("hh:mm:ss");
     QTableWidgetItem* time_item = new QTableWidgetItem();
     QTableWidgetItem* msg_item  = new QTableWidgetItem();
     QTableWidgetItem* line_item  = new QTableWidgetItem();
@@ -66,13 +66,10 @@ void CLoggingViewWrpr::addMessage(QtMsgType f_msgType, QString f_msg)
         
     int rowCount = logTable->rowCount();
     logTable->insertRow(rowCount);
-    logTable->setRowHeight(rowCount, 18);
+    logTable->setRowHeight(rowCount, 20);
 
     if (time.isEmpty() || logTable == NULL) 
         return;
-
-    if (f_msg.length() >= 8195) 
-        f_msg.truncate(8195);
 
     QFile fileHandler(m_logFile);
     if(false == fileHandler.isOpen())
@@ -85,7 +82,6 @@ void CLoggingViewWrpr::addMessage(QtMsgType f_msgType, QString f_msg)
     switch (f_msgType)
     {
     case QtDebugMsg:
-        fprintf(stderr, "Debug: %s \n", f_msg);
         time_item->setIcon(QApplication::style()->standardIcon( QStyle::SP_MessageBoxInformation ));
         time_item->setText(time);
         msg_item->setTextColor(QColor(0,0,255));
@@ -102,8 +98,8 @@ void CLoggingViewWrpr::addMessage(QtMsgType f_msgType, QString f_msg)
         fileHandler.write(QString("Debug: \t" + time + "\t" + f_msg + "\r\n").toLocal8Bit().data());
         fileHandler.close();
         break;
+
     case QtWarningMsg:
-        fprintf(stderr, "Warning: %s \n", f_msg );
         time_item->setIcon(QApplication::style()->standardIcon( QStyle::SP_MessageBoxWarning ));
         time_item->setText(time);
         msg_item->setTextColor(QColor(200,0,100));
@@ -120,8 +116,8 @@ void CLoggingViewWrpr::addMessage(QtMsgType f_msgType, QString f_msg)
         fileHandler.write(QString("Warning: \t" + time + "\t" + f_msg + "\r\n").toLocal8Bit().data());
         fileHandler.close();
         break;
+
     case QtCriticalMsg:
-        fprintf(stderr, "Critical: %s \n", f_msg );
         time_item->setIcon(QApplication::style()->standardIcon( QStyle::SP_MessageBoxCritical ));
         time_item->setText(time);
         msg_item->setTextColor(QColor(255,0,0));
@@ -135,11 +131,11 @@ void CLoggingViewWrpr::addMessage(QtMsgType f_msgType, QString f_msg)
         logTable->setItem(rowCount, 3, file_item);
         logTable->scrollToBottom();
 
-        fileHandler.write(QString("Critical: \t" + time + "\t" + f_msg + "\r\n").toLocal8Bit().data());
+        fileHandler.write(QString("Error: \t" + time + "\t" + f_msg + "\r\n").toLocal8Bit().data());
         fileHandler.close();
         break;
+
     case QtFatalMsg:
-        //QMessageBox::warning(0, tr("Fatal Error"), f_msg);
         fprintf(stderr, "Fatal: %s \n", f_msg );
         time_item->setIcon(QApplication::style()->standardIcon( QStyle::SP_MessageBoxCritical ));
         time_item->setText(time);
@@ -156,7 +152,6 @@ void CLoggingViewWrpr::addMessage(QtMsgType f_msgType, QString f_msg)
 
         fileHandler.write(QString("Fatal: \t" + time + "\t" + f_msg + "\r\n").toLocal8Bit().data());
         fileHandler.close();
-        //abort();
     }
 }
 

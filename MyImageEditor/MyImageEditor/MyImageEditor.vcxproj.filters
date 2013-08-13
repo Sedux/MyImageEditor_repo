@@ -51,10 +51,10 @@
     <Filter Include="Source Files\ui">
       <UniqueIdentifier>{831a6ffb-049f-487c-98aa-066853db7719}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\ocv">
+    <Filter Include="Header Files\image">
       <UniqueIdentifier>{2a18bcfa-5b83-47aa-b6af-32f1ff87be5f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\ocv">
+    <Filter Include="Source Files\image">
       <UniqueIdentifier>{a3416baf-b109-412e-9ad1-4dbb0579b285}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -89,9 +89,6 @@
     <ClCompile Include="GeneratedFiles\Release\moc_directcam_graphicsview.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="source\ocv\avifile_accessor.cpp">
-      <Filter>Source Files\ocv</Filter>
-    </ClCompile>
     <ClCompile Include="source\dockwidgets\histogramview_wrpr.cpp">
       <Filter>Source Files\dockwidgets</Filter>
     </ClCompile>
@@ -100,9 +97,6 @@
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_histogramview_wrpr.cpp">
       <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="source\ocv\histogram_calculate.cpp">
-      <Filter>Source Files\ocv</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_loggingview_wrpr.cpp">
       <Filter>Generated Files\Debug</Filter>
@@ -149,11 +143,38 @@
     <ClCompile Include="GeneratedFiles\Release\moc_settings.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="source\ocv\col_to_gray_converter.cpp">
-      <Filter>Source Files\ocv</Filter>
+    <ClCompile Include="source\image\avifile_accessor.cpp">
+      <Filter>Source Files\image</Filter>
     </ClCompile>
-    <ClCompile Include="source\ocv\otsu_thresholder.cpp">
-      <Filter>Source Files\ocv</Filter>
+    <ClCompile Include="source\image\col_to_gray_converter.cpp">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="source\image\edge_detector.cpp">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="source\image\histogram_calculate.cpp">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="source\image\otsu_thresholder.cpp">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="source\dockwidgets\imageprocessingtoolsview_wrpr.cpp">
+      <Filter>Source Files\dockwidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_imageprocessingtoolsview_wrpr.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_imageprocessingtoolsview_wrpr.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui\ruler_widget.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ruler_widget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ruler_widget.cpp">
+      <Filter>Generated Files\Release</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -163,20 +184,11 @@
     <ClInclude Include="GeneratedFiles\ui_directcamview_dckwgt.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\ocv\avifile_accessor.hpp">
-      <Filter>Header Files\ocv</Filter>
-    </ClInclude>
     <ClInclude Include="include\myimageeditor\webcamsettings.hpp">
       <Filter>Header Files\myimageeditor</Filter>
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_histogramview_dckwgt.h">
       <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\ocv\histogram_calculate.hpp">
-      <Filter>Header Files\ocv</Filter>
-    </ClInclude>
-    <ClInclude Include="include\ocv\ocv_utils.hpp">
-      <Filter>Header Files\ocv</Filter>
     </ClInclude>
     <ClInclude Include="include\myimageeditor\myimageeditor_base.hpp">
       <Filter>Header Files\myimageeditor</Filter>
@@ -193,11 +205,29 @@
     <ClInclude Include="GeneratedFiles\ui_imageeditorview_dckwgt.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\ocv\col_to_gray_converter.hpp">
-      <Filter>Header Files\ocv</Filter>
+    <ClInclude Include="include\image\avifile_accessor.hpp">
+      <Filter>Header Files\image</Filter>
     </ClInclude>
-    <ClInclude Include="include\ocv\otsu_thresholder.hpp">
-      <Filter>Header Files\ocv</Filter>
+    <ClInclude Include="include\image\col_to_gray_converter.hpp">
+      <Filter>Header Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="include\image\edge_detector.hpp">
+      <Filter>Header Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="include\image\histogram_calculate.hpp">
+      <Filter>Header Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="include\image\ocv_utils.hpp">
+      <Filter>Header Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="include\image\otsu_thresholder.hpp">
+      <Filter>Header Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_imageprocessingtools_dckwgt.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\image\image_edit_params.hpp">
+      <Filter>Header Files\image</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -242,6 +272,15 @@
     </CustomBuild>
     <CustomBuild Include="include\myimageeditor\settings.hpp">
       <Filter>Header Files\myimageeditor</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\imageprocessingtools_dckwgt.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="include\dockwidgets\imageprocessingtoolsview_wrpr.hpp">
+      <Filter>Header Files\dockwidgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="include\ui\ruler_widget.hpp">
+      <Filter>Header Files\ui</Filter>
     </CustomBuild>
   </ItemGroup>
 </Project>

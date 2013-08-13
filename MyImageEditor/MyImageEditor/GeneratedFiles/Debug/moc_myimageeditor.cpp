@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'myimageeditor.hpp'
 **
-** Created: Thu 8. Aug 23:06:06 2013
+** Created: Sun 11. Aug 03:36:08 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.2)
 **
 ** WARNING! All changes made in this file will be lost!

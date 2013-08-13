@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'myimageeditor.ui'
 **
-** Created: Thu 8. Aug 23:06:06 2013
+** Created: Sun 11. Aug 03:23:38 2013
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -22,6 +22,7 @@
 #include "..\include\dockwidgets\directcamview_wrpr.hpp"
 #include "..\include\dockwidgets\histogramview_wrpr.hpp"
 #include "..\include\dockwidgets\imageeditorview_wrpr.hpp"
+#include "..\include\dockwidgets\imageprocessingtoolsview_wrpr.hpp"
 #include "..\include\dockwidgets\loggingview_wrpr.hpp"
 
 QT_BEGIN_NAMESPACE
@@ -40,6 +41,8 @@ public:
     QWidget *dockWidgetContents_3;
     CImageEditorViewWrpr *m_imageEditorView;
     QWidget *dockWidgetContents_4;
+    CImageProcessingToolsViewWrpr *m_imageProcessingToolsView;
+    QWidget *dockWidgetContents_5;
 
     void setupUi(QMainWindow *CMyImageEditorUI)
     {
@@ -82,6 +85,12 @@ public:
         dockWidgetContents_4->setObjectName(QString::fromUtf8("dockWidgetContents_4"));
         m_imageEditorView->setWidget(dockWidgetContents_4);
         CMyImageEditorUI->addDockWidget(static_cast<Qt::DockWidgetArea>(2), m_imageEditorView);
+        m_imageProcessingToolsView = new CImageProcessingToolsViewWrpr(CMyImageEditorUI);
+        m_imageProcessingToolsView->setObjectName(QString::fromUtf8("m_imageProcessingToolsView"));
+        dockWidgetContents_5 = new QWidget();
+        dockWidgetContents_5->setObjectName(QString::fromUtf8("dockWidgetContents_5"));
+        m_imageProcessingToolsView->setWidget(dockWidgetContents_5);
+        CMyImageEditorUI->addDockWidget(static_cast<Qt::DockWidgetArea>(8), m_imageProcessingToolsView);
 
         retranslateUi(CMyImageEditorUI);
 

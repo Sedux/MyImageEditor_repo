@@ -1,7 +1,7 @@
 
 
 #include "ui\directcam_graphicsview.hpp"
-#include "ocv\ocv_utils.hpp"
+#include "image\ocv_utils.hpp"
 
 CDirectCamGraphicsView::CDirectCamGraphicsView(QWidget* f_parent): QGraphicsView(f_parent),
 	m_camReader(),
@@ -9,13 +9,16 @@ CDirectCamGraphicsView::CDirectCamGraphicsView(QWidget* f_parent): QGraphicsView
 	m_camWidth(640),
 	m_camHeight(480),
     m_videoFile(),
-    m_isPlaying(false)
+    m_isPlaying(false),
+    m_scaleVal(100)
 {
 	m_videoTimer = new QTimer(this);
 	connect(m_videoTimer, SIGNAL(timeout()), this, SLOT(tmrTimeOut()));
 	
 	m_scene = new QGraphicsScene();
 	m_imageItem = new QGraphicsPixmapItem();
+
+    this->setMouseTracking(true);
 }
 
 //dest
@@ -239,4 +242,40 @@ int CDirectCamGraphicsView::getFrameCnt()
 int CDirectCamGraphicsView::getCurrentFrameNum()
 {
     return static_cast<int>(m_videoReader.get(CV_CAP_PROP_POS_FRAMES))  - 1;
+}
+
+void CDirectCamGraphicsView::paintEvent(QPaintEvent* f_event)
+{
+    QGraphicsView::paintEvent(f_event);
+
+    QPoint l_orgGlobal = this->mapToGlobal(this->mapFromScene(QPoint(0, 0)));
+    QPoint l_100Global = this->mapToGlobal(this->mapFromScene(QPoint(100, 100)));
+    emit graphicsViewRedrawn(l_orgGlobal, l_100Global);
+}
+
+//use mouse wheel event for scaling
+void CDirectCamGraphicsView::wheelEvent(QWheelEvent* f_event)
+{
+    int l_delta = f_event->delta() / 8;
+    int l_deltaScale = l_delta / 15;
+    
+    int l_newScale = m_scaleVal + 10 * l_deltaScale;
+    doScaling(l_newScale);
+}
+
+void CDirectCamGraphicsView::doScaling(int f_scaleValue)
+{
+    m_scaleVal = f_scaleValue;
+
+    qreal scaleFraction = f_scaleValue * 0.01;
+    setTransform(QTransform().scale(scaleFraction, scaleFraction));
+}
+
+void CDirectCamGraphicsView::mouseMoveEvent(QMouseEvent* f_event)
+{
+    QPoint l_org = this->mapFromScene(QPoint(0, 0));
+    QPoint l_curGlobal = f_event->pos();
+    emit curMousePos(l_curGlobal - l_org);
+
+    QGraphicsView::mouseMoveEvent(f_event);
 }

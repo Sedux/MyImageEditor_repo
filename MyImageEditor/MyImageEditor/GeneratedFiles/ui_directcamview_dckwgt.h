@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'directcamview_dckwgt.ui'
 **
-** Created: Thu 8. Aug 23:06:07 2013
+** Created: Wed 14. Aug 02:52:50 2013
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -16,6 +16,7 @@
 #include <QtGui/QButtonGroup>
 #include <QtGui/QComboBox>
 #include <QtGui/QDockWidget>
+#include <QtGui/QGridLayout>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
@@ -24,6 +25,7 @@
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
 #include "..\include\ui\directcam_graphicsview.hpp"
+#include "..\include\ui\ruler_widget.hpp"
 
 QT_BEGIN_NAMESPACE
 
@@ -32,7 +34,10 @@ class Ui_CDirectCamView
 public:
     QWidget *dockWidgetContents;
     QVBoxLayout *verticalLayout;
+    QGridLayout *gridLayout;
     CDirectCamGraphicsView *m_graphicsView;
+    CRulerWidget *m_horRuler_wdgt;
+    CRulerWidget *m_verRuler_wdgt;
     QSlider *m_frameSlider;
     QHBoxLayout *horizontalLayout_6;
     QPushButton *m_firstFrame_btn;
@@ -57,15 +62,32 @@ public:
         if (CDirectCamView->objectName().isEmpty())
             CDirectCamView->setObjectName(QString::fromUtf8("CDirectCamView"));
         CDirectCamView->resize(638, 608);
-        CDirectCamView->setMinimumSize(QSize(250, 250));
+        CDirectCamView->setMinimumSize(QSize(343, 371));
         dockWidgetContents = new QWidget();
         dockWidgetContents->setObjectName(QString::fromUtf8("dockWidgetContents"));
         verticalLayout = new QVBoxLayout(dockWidgetContents);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        gridLayout = new QGridLayout();
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         m_graphicsView = new CDirectCamGraphicsView(dockWidgetContents);
         m_graphicsView->setObjectName(QString::fromUtf8("m_graphicsView"));
 
-        verticalLayout->addWidget(m_graphicsView);
+        gridLayout->addWidget(m_graphicsView, 1, 1, 1, 1);
+
+        m_horRuler_wdgt = new CRulerWidget(dockWidgetContents);
+        m_horRuler_wdgt->setObjectName(QString::fromUtf8("m_horRuler_wdgt"));
+        m_horRuler_wdgt->setMinimumSize(QSize(50, 20));
+
+        gridLayout->addWidget(m_horRuler_wdgt, 0, 1, 1, 1);
+
+        m_verRuler_wdgt = new CRulerWidget(dockWidgetContents);
+        m_verRuler_wdgt->setObjectName(QString::fromUtf8("m_verRuler_wdgt"));
+        m_verRuler_wdgt->setMinimumSize(QSize(40, 50));
+
+        gridLayout->addWidget(m_verRuler_wdgt, 1, 0, 1, 1);
+
+
+        verticalLayout->addLayout(gridLayout);
 
         m_frameSlider = new QSlider(dockWidgetContents);
         m_frameSlider->setObjectName(QString::fromUtf8("m_frameSlider"));

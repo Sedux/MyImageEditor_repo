@@ -4,6 +4,7 @@
 #include "myimageeditor\logger_defines.hpp"
 #include "myimageeditor\logger.hpp"
 #include "myimageeditor\settings.hpp"
+#include "ui\imageeditor_graphicsview.hpp"
 
 CMyImageEditor::CMyImageEditor(QWidget* f_parent, Qt::WFlags f_flags) : 
 QMainWindow(f_parent, f_flags)
@@ -15,6 +16,8 @@ QMainWindow(f_parent, f_flags)
 
     connect(m_myImageEditor_ui.m_directCamView->getGraphicsView(), SIGNAL(updateImageEditorView(const QImage&)), 
             m_myImageEditor_ui.m_imageEditorView, SLOT(updateImage(const QImage&)));
+    connect(m_myImageEditor_ui.m_imageProcessingToolsView, SIGNAL(reloadImage(const CImageEditParams&)), 
+            m_myImageEditor_ui.m_imageEditorView, SLOT(reloadImage(const CImageEditParams&)));
 
     CSettings::getInstance(this)->restoreSettings();
 
@@ -43,6 +46,7 @@ void CMyImageEditor::init()
     m_myImageEditor_ui.m_histogramView->init(this);
     m_myImageEditor_ui.m_loggingView->init(this);
     m_myImageEditor_ui.m_imageEditorView->init(this);
+    m_myImageEditor_ui.m_imageProcessingToolsView->init(this);
 }
 
 void CMyImageEditor::prepareGui()
@@ -54,4 +58,9 @@ void CMyImageEditor::prepareGui()
 CHistogramViewWrpr* CMyImageEditor::getHistogramView()
 {
     return m_myImageEditor_ui.m_histogramView;
+}
+
+QImage CMyImageEditor::getImageEditorImage()
+{
+    return m_myImageEditor_ui.m_imageEditorView->getGraphicsView()->getCurrentImage();
 }

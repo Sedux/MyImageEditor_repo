@@ -8,6 +8,8 @@
 #include "ui_imageeditorview_dckwgt.h"
 
 #include "dockwidgets\dockwidget_base.hpp"
+#include "ui\imageeditor_graphicsview.hpp"
+#include "image\image_edit_params.hpp"
 
 class CImageEditorViewWrpr : public QDockWidget, public IDckWidget
 {
@@ -21,17 +23,17 @@ public:
 
 	void init(IMyImageEditor* f_int);
 
-    QGraphicsView* getGraphicsView();
+    CImageEditorGraphicsView* getGraphicsView();
 
 private:
 	Ui::CImageEditorView m_imageEditorView_ui;
     QImage m_image;
+    CImageEditParams m_imageEditParmas;
 
 private slots:
-    void genHistogramBtnClicked();
 
     void updateImage(const QImage& f_image);
-    void reloadImage();
+    void reloadImage(const CImageEditParams& f_imageEditParams);
 };
 
 #endif //IMAGEEDITORVIEW_WRPR_HPP

@@ -23,6 +23,7 @@ public:
 	void init();
 
     CHistogramViewWrpr* getHistogramView();
+    QImage              getImageEditorImage();
 
 private:
 	//main GUI

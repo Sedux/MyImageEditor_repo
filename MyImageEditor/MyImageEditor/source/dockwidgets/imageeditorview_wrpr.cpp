@@ -1,14 +1,14 @@
 
 
 #include "dockwidgets\imageeditorview_wrpr.hpp"
-#include "dockwidgets\histogramview_wrpr.hpp"
-#include "ocv\col_to_gray_converter.hpp"
-#include "ocv\otsu_thresholder.hpp"
+#include "image\col_to_gray_converter.hpp"
+#include "image\otsu_thresholder.hpp"
+#include "image\edge_detector.hpp"
 
 CImageEditorViewWrpr::CImageEditorViewWrpr(QWidget* f_parent, Qt::WFlags f_flag):
-    QDockWidget(f_parent, f_flag)
+    QDockWidget(f_parent, f_flag),
+    m_imageEditParmas()
 {
-	
 }
 
 CImageEditorViewWrpr::~CImageEditorViewWrpr()
@@ -18,52 +18,62 @@ CImageEditorViewWrpr::~CImageEditorViewWrpr()
 void CImageEditorViewWrpr::setWidget(QWidget* f_widget)
 {
     m_imageEditorView_ui.setupUi(this);
-    connect(m_imageEditorView_ui.m_genHistogram_btn, SIGNAL(clicked()), this, SLOT(genHistogramBtnClicked()));
-    connect(m_imageEditorView_ui.m_convertToGrayScale_chkBx, SIGNAL(stateChanged(int)), this, SLOT(reloadImage()));
-    connect(m_imageEditorView_ui.m_convertToMonochkBx, SIGNAL(stateChanged(int)), this, SLOT(reloadImage()));
-    connect(m_imageEditorView_ui.m_grayScaleMethod_comBx, SIGNAL(currentIndexChanged(int)), this, SLOT(reloadImage()));
+    m_imageEditorView_ui.m_horRuler_wdgt->setOrientation(CRulerWidget::HORIZONTAL);
+    m_imageEditorView_ui.m_verRuler_wdgt->setOrientation(CRulerWidget::VERTICAL);
+    connect(m_imageEditorView_ui.m_graphicsView, SIGNAL(graphicsViewRedrawn(const QPoint&, const QPoint&)), 
+            m_imageEditorView_ui.m_horRuler_wdgt, SLOT(graphicsViewRedrawn(const QPoint&, const QPoint&)));
+    connect(m_imageEditorView_ui.m_graphicsView, SIGNAL(graphicsViewRedrawn(const QPoint&, const QPoint&)), 
+            m_imageEditorView_ui.m_verRuler_wdgt, SLOT(graphicsViewRedrawn(const QPoint&, const QPoint&)));
+    connect(m_imageEditorView_ui.m_graphicsView, SIGNAL(curMousePos(const QPoint&)), 
+            m_imageEditorView_ui.m_horRuler_wdgt, SLOT(setCurrentPos(const QPoint&)));
+    connect(m_imageEditorView_ui.m_graphicsView, SIGNAL(curMousePos(const QPoint&)), 
+            m_imageEditorView_ui.m_verRuler_wdgt, SLOT(setCurrentPos(const QPoint&)));
+
 }
 
 void CImageEditorViewWrpr::init(IMyImageEditor* f_int)
 {
     this->setMyImageEditorInt(f_int);
     m_imageEditorView_ui.m_graphicsView->init();
-
-    QStringList l_grayScaleConvList = CColToGrayConv::getConMethods();
-    m_imageEditorView_ui.m_grayScaleMethod_comBx->addItems(l_grayScaleConvList);
 }
 
-QGraphicsView* CImageEditorViewWrpr::getGraphicsView()
+CImageEditorGraphicsView* CImageEditorViewWrpr::getGraphicsView()
 {
     return  m_imageEditorView_ui.m_graphicsView;
-}
-
-void CImageEditorViewWrpr::genHistogramBtnClicked()
-{
-    CHistogramViewWrpr* histView = dynamic_cast<CHistogramViewWrpr*>(this->m_myImageEditorInt->getHistogramView());
-    histView->calculateHistogram(m_imageEditorView_ui.m_graphicsView->getCurrentImage());
 }
 
 void CImageEditorViewWrpr::updateImage(const QImage& f_image)
 {
     m_image = f_image;
     QImage l_convertedImage = f_image;
-    if(true == m_imageEditorView_ui.m_convertToGrayScale_chkBx->isChecked())
+     
+    l_convertedImage = l_convertedImage.mirrored(m_imageEditParmas.m_reverseImageHor_b, m_imageEditParmas.m_reverseImageVer_b);
+    
+    if(true == m_imageEditParmas.m_convertToGray_b)
     {
         CColToGrayConv l_grayScaleConv;
-        l_convertedImage = l_grayScaleConv.convertToGray(f_image, static_cast<CColToGrayConv::EMethod>(m_imageEditorView_ui.m_grayScaleMethod_comBx->currentIndex()));   
+        l_convertedImage = l_grayScaleConv.convertToGray(l_convertedImage, m_imageEditParmas.m_colToGrayMethod);   
     }
 
-    if((QImage::Format_Indexed8 == l_convertedImage.format()) && (true ==  m_imageEditorView_ui.m_convertToMonochkBx->isChecked()))
+    if(QImage::Format_Indexed8 == l_convertedImage.format())
     {
-        l_convertedImage = COtsuThresholder::convertGrayToBinary(l_convertedImage);
+        if(true ==  m_imageEditParmas.m_convertToMonochrome_b)
+        {
+            l_convertedImage = COtsuThresholder::convertGrayToBinary(l_convertedImage);
+        }
+        else if(true ==  m_imageEditParmas.m_detectEdges_b)
+        {
+            CEdgeDetector l_edgeDetector;
+            l_convertedImage = l_edgeDetector.detectEdges(l_convertedImage, m_imageEditParmas.m_edgeDetectionMethod);
+        }
     }
 
     m_imageEditorView_ui.m_graphicsView->updateImage(l_convertedImage);
 }
 
-void CImageEditorViewWrpr::reloadImage()
+void CImageEditorViewWrpr::reloadImage(const CImageEditParams& f_imageEditParams)
 {
+    m_imageEditParmas = f_imageEditParams;
     if(false == m_image.isNull())
     {
         this->updateImage(m_image);
