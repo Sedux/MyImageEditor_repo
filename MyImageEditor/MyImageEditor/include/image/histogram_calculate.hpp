@@ -18,11 +18,13 @@ public:
         QVector<double> m_yvalues;
     };
 
-    CHistogramCalc(){}
+    CHistogramCalc() : m_pixelCount(0){}
     ~CHistogramCalc(){}
 
     void calculateHistogram(const QImage& f_image)
     {
+        m_pixelCount = f_image.height() * f_image.width();
+
         m_channel0.m_xvalues.clear();
         m_channel0.m_yvalues.clear();
 
@@ -44,7 +46,8 @@ public:
         float range[] = { 0, 256 } ;
         const float* histRange = { range };
 
-        bool uniform = true; bool accumulate = false;
+        bool uniform = true; 
+        bool accumulate = false;
 
         cv::Mat b_hist, g_hist, r_hist;
 
@@ -60,15 +63,15 @@ public:
         for(int l_count = 0; l_count < histSize; l_count++)
         {
             m_channel0.m_xvalues.push_back(l_count);
-            m_channel0.m_yvalues.push_back(b_hist.at<int>(l_count));
+            m_channel0.m_yvalues.push_back(b_hist.at<float>(l_count));
 
             if(CV_8UC1 != l_image.type())
             {
                 m_channel1.m_xvalues.push_back(l_count);
-                m_channel1.m_yvalues.push_back(g_hist.at<int>(l_count));
+                m_channel1.m_yvalues.push_back(g_hist.at<float>(l_count));
 
                 m_channel2.m_xvalues.push_back(l_count);
-                m_channel2.m_yvalues.push_back(r_hist.at<int>(l_count));
+                m_channel2.m_yvalues.push_back(r_hist.at<float>(l_count));
             }
         }
     }
@@ -88,12 +91,52 @@ public:
         return m_channel2;
     }
 
+    const SHistMap getNormalizedChannel0()
+    {
+        SHistMap l_normHist;
+        l_normHist.m_xvalues = m_channel0.m_xvalues;
+
+        foreach(double val, m_channel0.m_yvalues)
+        {
+            l_normHist.m_yvalues.push_back(val/m_pixelCount);
+        }
+
+        return l_normHist;
+    }
+
+    const SHistMap getNormalizedChannel1()
+    {
+        SHistMap l_normHist;
+        l_normHist.m_xvalues = m_channel1.m_xvalues;
+
+        foreach(double val, m_channel1.m_yvalues)
+        {
+            l_normHist.m_yvalues.push_back(val/m_pixelCount);
+        }
+
+        return l_normHist;
+    }
+
+    const SHistMap getNormalizedChannel2()
+    {
+        SHistMap l_normHist;
+        l_normHist.m_xvalues = m_channel2.m_xvalues;
+
+        foreach(double val, m_channel2.m_yvalues)
+        {
+            l_normHist.m_yvalues.push_back(val/m_pixelCount);
+        }
+
+        return l_normHist;
+    }
+
 private:
 
     SHistMap m_channel0;
     SHistMap m_channel1;
     SHistMap m_channel2;
 
+    int64 m_pixelCount;
 };
 
 #endif

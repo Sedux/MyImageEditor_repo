@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'imageeditorview_dckwgt.ui'
 **
-** Created: Wed 14. Aug 00:22:56 2013
+** Created: Mon 19. Aug 23:16:29 2013
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -37,6 +37,14 @@ public:
         if (CImageEditorView->objectName().isEmpty())
             CImageEditorView->setObjectName(QString::fromUtf8("CImageEditorView"));
         CImageEditorView->resize(779, 679);
+        CImageEditorView->setStyleSheet(QString::fromUtf8("QDockWidget::title {\n"
+"	background-color: rgb(174, 174, 220);\n"
+"	color: rgb(45, 45, 45);\n"
+"	 border: 1px solid black;\n"
+"     border-top: 3px solid qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                       stop: 0 black, stop: 1  rgb(174, 174, 220));\n"
+"     border-radius: 2px;\n"
+" }"));
         dockWidgetContents = new QWidget();
         dockWidgetContents->setObjectName(QString::fromUtf8("dockWidgetContents"));
         gridLayout = new QGridLayout(dockWidgetContents);
@@ -49,6 +57,7 @@ public:
 
         m_graphicsView = new CImageEditorGraphicsView(dockWidgetContents);
         m_graphicsView->setObjectName(QString::fromUtf8("m_graphicsView"));
+        m_graphicsView->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
 
         gridLayout->addWidget(m_graphicsView, 1, 1, 1, 1);
 

@@ -13,6 +13,18 @@
   <property name="windowTitle">
    <string>My Image Editor</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">color: rgb(0, 0, 0);
+font: 9pt &quot;Calibri&quot;;
+border-color: rgb(59, 42, 255);
+background-color: rgb(200, 200, 220);
+
+
+
+
+
+</string>
+  </property>
   <widget class="QWidget" name="centralwidget"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -20,7 +32,7 @@
      <x>0</x>
      <y>0</y>
      <width>1049</width>
-     <height>26</height>
+     <height>24</height>
     </rect>
    </property>
   </widget>
@@ -94,6 +106,8 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../resource/myimageeditor.qrc"/>
+ </resources>
  <connections/>
 </ui>

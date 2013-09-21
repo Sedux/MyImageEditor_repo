@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'myimageeditor.ui'
 **
-** Created: Sun 11. Aug 03:23:38 2013
+** Created: Mon 19. Aug 23:16:29 2013
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -49,12 +49,22 @@ public:
         if (CMyImageEditorUI->objectName().isEmpty())
             CMyImageEditorUI->setObjectName(QString::fromUtf8("CMyImageEditorUI"));
         CMyImageEditorUI->resize(1049, 793);
+        CMyImageEditorUI->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
+"font: 9pt \"Calibri\";\n"
+"border-color: rgb(59, 42, 255);\n"
+"background-color: rgb(200, 200, 220);\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"\n"
+""));
         centralwidget = new QWidget(CMyImageEditorUI);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         CMyImageEditorUI->setCentralWidget(centralwidget);
         menubar = new QMenuBar(CMyImageEditorUI);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1049, 26));
+        menubar->setGeometry(QRect(0, 0, 1049, 24));
         CMyImageEditorUI->setMenuBar(menubar);
         statusbar = new QStatusBar(CMyImageEditorUI);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));

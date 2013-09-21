@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'directcamview_dckwgt.ui'
 **
-** Created: Wed 14. Aug 02:52:50 2013
+** Created: Fri 16. Aug 03:12:38 2013
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -62,7 +62,45 @@ public:
         if (CDirectCamView->objectName().isEmpty())
             CDirectCamView->setObjectName(QString::fromUtf8("CDirectCamView"));
         CDirectCamView->resize(638, 608);
-        CDirectCamView->setMinimumSize(QSize(343, 371));
+        CDirectCamView->setMinimumSize(QSize(472, 371));
+        CDirectCamView->setStyleSheet(QString::fromUtf8("QDockWidget::title {\n"
+"	background-color: rgb(174, 174, 220);\n"
+"	color: rgb(45, 45, 45);\n"
+"	 border: 1px solid black;\n"
+"     border-top: 3px solid qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                       stop: 0 black, stop: 1  rgb(174, 174, 220));\n"
+"     border-radius: 2px;\n"
+" }\n"
+"\n"
+"QPushButton {\n"
+"     \n"
+"	color: rgb(45, 45, 45);\n"
+"     border: 2px solid #8f8f91;\n"
+"	 border-color: rgb(90, 93, 125);\n"
+"     border-radius: 6px;\n"
+"     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                       stop: 0 #f6f7fa, stop: 1 #dadbde);\n"
+"     min-width: 80px;\n"
+" }\n"
+"\n"
+" QPushButton:pressed {\n"
+"     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                       stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+" }\n"
+"\n"
+" QPushButton:hover {\n"
+"     border-color: rgb(90, 93, 255);\n"
+" }\n"
+"\n"
+" QPushButton:default {\n"
+"     border-color: navy; /* make the default button p"
+                        "rominent */\n"
+" }\n"
+"\n"
+"QPushButton:disabled {  \n"
+"	color: rgb(171, 171, 171);\n"
+"     border-color: none; /* make the default button prominent */\n"
+" }"));
         dockWidgetContents = new QWidget();
         dockWidgetContents->setObjectName(QString::fromUtf8("dockWidgetContents"));
         verticalLayout = new QVBoxLayout(dockWidgetContents);
@@ -71,6 +109,7 @@ public:
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         m_graphicsView = new CDirectCamGraphicsView(dockWidgetContents);
         m_graphicsView->setObjectName(QString::fromUtf8("m_graphicsView"));
+        m_graphicsView->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
 
         gridLayout->addWidget(m_graphicsView, 1, 1, 1, 1);
 

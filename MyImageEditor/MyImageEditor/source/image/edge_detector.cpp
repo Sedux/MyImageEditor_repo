@@ -2,6 +2,8 @@
 
 #include "image\edge_detector.hpp"
 #include "image\ocv_utils.hpp"
+#include "image\image_kernel.hpp"
+#include "image\image_convolution.hpp"
 
 QImage CEdgeDetector::detectEdges(const QImage& f_image, const CEdgeDetector::EMethod& f_method_e)
 {
@@ -43,6 +45,15 @@ QStringList CEdgeDetector::getConMethods()
 
 void CEdgeDetector::detectByRoberts(const QImage& f_inImage, QImage& f_outImage)
 {
+    TImageKernel<int, 3, 3> robertsKernelX = {0, 0, 0,
+                                             0, -1, 0,
+                                             0, 0, 1};
+
+    TImageKernel<int, 3, 3> robertsKernelY = {0, 0, 0,
+                                             0, 0, 1,
+                                             0, -1, 0};
+
+
    for(int l_x = 0; l_x < f_inImage.width() - 1; l_x++)
     {
         for(int l_y = 0; l_y < f_inImage.height() - 1; l_y++)
@@ -51,7 +62,6 @@ void CEdgeDetector::detectByRoberts(const QImage& f_inImage, QImage& f_outImage)
             int val2 = (f_inImage.constBits()[(l_y + 1) * f_inImage.bytesPerLine() + (l_x)] - f_inImage.constBits()[(l_y) * f_inImage.bytesPerLine() + (l_x + 1)])/4;
             double grad = sqrt(static_cast<double>(val1 * val1 + val2 * val2 ));
             int grad_i32 = static_cast<int>(grad);
-            QColor color = QColor(grad_i32, grad_i32, grad_i32);
             f_outImage.setPixel(l_x, l_y, grad_i32);
         }
     }
@@ -79,7 +89,6 @@ void CEdgeDetector::detectBySobel(const QImage& f_inImage, QImage& f_outImage)
 
             double grad = sqrt(static_cast<double>(val1 * val1 + val2 * val2 ));
             int grad_i32 = static_cast<int>(grad);
-            QColor color = QColor(grad_i32, grad_i32, grad_i32);
             f_outImage.setPixel(l_x, l_y, grad_i32);
         }
     }
@@ -107,7 +116,6 @@ void CEdgeDetector::detectByPrewitts(const QImage& f_inImage, QImage& f_outImage
 
             double grad = sqrt(static_cast<double>(val1 * val1 + val2 * val2 ));
             int grad_i32 = static_cast<int>(grad);
-            QColor color = QColor(grad_i32, grad_i32, grad_i32);
             f_outImage.setPixel(l_x, l_y, grad_i32);
         }
     }

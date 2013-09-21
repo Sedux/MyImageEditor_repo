@@ -29,6 +29,7 @@ protected:
 private:
     QGraphicsScene* m_scene;
     QGraphicsPixmapItem*    m_imageItem;
+    QImage                  m_displayedImage;
 
     int m_scaleVal;
 

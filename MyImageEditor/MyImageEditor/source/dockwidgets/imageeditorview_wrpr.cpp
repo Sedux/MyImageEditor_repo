@@ -66,6 +66,11 @@ void CImageEditorViewWrpr::updateImage(const QImage& f_image)
             CEdgeDetector l_edgeDetector;
             l_convertedImage = l_edgeDetector.detectEdges(l_convertedImage, m_imageEditParmas.m_edgeDetectionMethod);
         }
+        else if(true == m_imageEditParmas.m_blurImage_b)
+        {
+            CImageBlur l_blurImage;
+            l_convertedImage = l_blurImage.blurImage(l_convertedImage, m_imageEditParmas.m_imageBlurMethod);
+        }
     }
 
     m_imageEditorView_ui.m_graphicsView->updateImage(l_convertedImage);

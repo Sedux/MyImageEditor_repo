@@ -10,6 +10,16 @@
     <height>135</height>
    </rect>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QDockWidget::title {
+	background-color: rgb(174, 174, 220);
+	color: rgb(45, 45, 45);
+	 border: 1px solid black;
+     border-top: 3px solid qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                       stop: 0 black, stop: 1  rgb(174, 174, 220));
+     border-radius: 2px;
+ }</string>
+  </property>
   <property name="windowTitle">
    <string>Log View</string>
   </property>

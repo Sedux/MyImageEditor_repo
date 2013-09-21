@@ -176,6 +176,15 @@
     <ClCompile Include="GeneratedFiles\Release\moc_ruler_widget.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="source\image\image_blur.cpp">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_myimageeditor.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\image\gaussian_kernel_gen.cpp">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_myimageeditor.h">
@@ -227,6 +236,18 @@
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="include\image\image_edit_params.hpp">
+      <Filter>Header Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="include\image\image_kernel.hpp">
+      <Filter>Header Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="include\image\image_convolution.hpp">
+      <Filter>Header Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="include\image\image_blur.hpp">
+      <Filter>Header Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="include\image\gaussian_kernel_gen.hpp">
       <Filter>Header Files\image</Filter>
     </ClInclude>
   </ItemGroup>
@@ -281,6 +302,9 @@
     </CustomBuild>
     <CustomBuild Include="include\ui\ruler_widget.hpp">
       <Filter>Header Files\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="resource\myimageeditor.qrc">
+      <Filter>Resource Files</Filter>
     </CustomBuild>
   </ItemGroup>
 </Project>

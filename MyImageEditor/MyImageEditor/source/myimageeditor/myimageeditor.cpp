@@ -6,6 +6,8 @@
 #include "myimageeditor\settings.hpp"
 #include "ui\imageeditor_graphicsview.hpp"
 
+//#include "image\gaussian_kernel_gen.hpp"
+
 CMyImageEditor::CMyImageEditor(QWidget* f_parent, Qt::WFlags f_flags) : 
 QMainWindow(f_parent, f_flags)
 {
@@ -47,6 +49,10 @@ void CMyImageEditor::init()
     m_myImageEditor_ui.m_loggingView->init(this);
     m_myImageEditor_ui.m_imageEditorView->init(this);
     m_myImageEditor_ui.m_imageProcessingToolsView->init(this);
+
+    /*CGaussianKernalGen<5> l_kernal;
+    CGaussianKernalGen<5>::ImageKernalType l_image;
+    l_kernal(l_image, 1);*/
 }
 
 void CMyImageEditor::prepareGui()

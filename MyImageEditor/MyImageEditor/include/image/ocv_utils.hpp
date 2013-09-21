@@ -70,6 +70,12 @@ namespace utils
         return (f_first < f_second) ? f_second : f_first;
     }
 
+
+    template<class type>
+    inline type abs(const type& f_first, const type& f_second)
+    {
+        return (f_first > f_second) ? (f_first - f_second) : (f_second - f_first);
+    }
 }
 
 #endif

@@ -27,12 +27,13 @@ void CImageEditorGraphicsView::init()
 
 void CImageEditorGraphicsView::updateImage(const QImage& f_image)
 {
-    m_imageItem->setPixmap(QPixmap::fromImage(f_image));
+    m_displayedImage = f_image;
+    m_imageItem->setPixmap(QPixmap::fromImage(m_displayedImage));
 }
 
 QImage CImageEditorGraphicsView::getCurrentImage()
 {
-    return m_imageItem->pixmap().toImage();
+    return m_displayedImage;
 }
 
 void CImageEditorGraphicsView::paintEvent(QPaintEvent* f_event)
